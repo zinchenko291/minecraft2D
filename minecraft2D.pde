@@ -16,6 +16,7 @@ void setup() {
 void draw() {
   background(0);
   cam.showArea();
+  move();
 
   MAIN_DEBUG();
 }

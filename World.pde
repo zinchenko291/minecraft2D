@@ -13,6 +13,11 @@ class World {
     } 
     catch(IndexOutOfBoundsException e) {
       chunks.add(x, new ArrayList<Chunk>());
+      if (y != 0) {
+        for (int i = 0; i < y; i++) {
+          chunks.get(x).add(i, null);
+        }
+      }
       chunks.get(x).add(y, chunk); //<>//
     }
   }
@@ -22,6 +27,10 @@ class World {
       chunks.get(x).get(y);
     } 
     catch(IndexOutOfBoundsException e) {  //<>//
+      Chunk newChunk = gen.generateChunk(x, y);
+      setChunk(newChunk, x, y);
+    }
+    if (chunks.get(x).get(y) == null) {
       Chunk newChunk = gen.generateChunk(x, y);
       setChunk(newChunk, x, y);
     }
