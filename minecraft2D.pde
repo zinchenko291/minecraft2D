@@ -8,18 +8,14 @@ void settings() {
 
 void setup() {
   settings = new Settings();
-  world = new World((long)random(200), 0.1);
+  world = new World((long)random(settings.randomRange), 0.1);
   cam = new Camera(0, 0, world);
   noStroke();
 }
 
 void draw() {
+  background(0);
   cam.showArea();
-}
 
-void keyPressed() {
-  if (key == 'r') {
-    world = new World((long)random(200), 0.1);
-    cam = new Camera(0, 0, world);
-  }
+  MAIN_DEBUG();
 }

@@ -1,6 +1,6 @@
 class Camera {
-  private int x;
-  private int y;
+  private float x;
+  private float y;
   private Render render;
 
   Camera(int x, int y, World world) {
@@ -8,18 +8,33 @@ class Camera {
     this.y = y;
     this.render = new Render(world);
   }
-  
-  public void setX(int x) { this.x = x; }
-  public void setY(int y) { this.y = y; }
 
-  public int getX() { return x; }
-  public int getY() { return y; }
-  
+  public void setX(float x) {
+    if (x < 0) {
+      return;
+    }
+    this.x = x;
+    
+  }
+  public void setY(float y) { 
+     if (y < 0) {
+      return;
+    }
+    this.y = y;
+  }
+
+  public float getX() { return x; }
+  public float getY() { return y; }
+
   public void showArea() {
+    x += 0.05;
+    push();
+    translate(-x * settings.chunkSize, -y * settings.chunkSize);
     for (int i = 0; i < width / settings.chunkSize + 1; i++) {
       for (int j = 0; j < height / settings.chunkSize + 1; j++) {
-        render.renderChunk(i + x, j + y);
+        render.renderChunk(i + (int)x, j + (int)y);
       }
     }
+    pop();
   }
 }

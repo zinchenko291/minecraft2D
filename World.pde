@@ -13,7 +13,7 @@ class World {
     } 
     catch(IndexOutOfBoundsException e) {
       chunks.add(x, new ArrayList<Chunk>());
-      chunks.get(x).add(y, chunk); //<>// //<>//
+      chunks.get(x).add(y, chunk); //<>//
     }
   }
 
@@ -21,10 +21,12 @@ class World {
     try {
       chunks.get(x).get(y);
     } 
-    catch(IndexOutOfBoundsException e) { //<>// //<>//
+    catch(IndexOutOfBoundsException e) {  //<>//
       Chunk newChunk = gen.generateChunk(x, y);
       setChunk(newChunk, x, y);
     }
     return chunks.get(x).get(y);
   }
+  
+  public int getXSize() { return chunks.size(); }
 }
