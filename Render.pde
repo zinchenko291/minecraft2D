@@ -12,10 +12,10 @@ class Render {
     
     beginShape();
       texture(textures.getTexture(chunk.getHight()));
-      vertex(x * Settings.chunkSize, y * Settings.chunkSize, 0, 0);
-      vertex((1 + x) * Settings.chunkSize, y * Settings.chunkSize, Settings.chunkSize, 0);
-      vertex((1 + x) * Settings.chunkSize, (1 + y) * Settings.chunkSize, Settings.chunkSize, Settings.chunkSize);
-      vertex(x * Settings.chunkSize, (1 + y) * Settings.chunkSize, 0, Settings.chunkSize);
+      vertex(x * settings.chunkSize, y * settings.chunkSize, 0, 0);
+      vertex((1 + x) * settings.chunkSize, y * settings.chunkSize, settings.chunkSize, 0);
+      vertex((1 + x) * settings.chunkSize, (1 + y) * settings.chunkSize, settings.chunkSize, settings.chunkSize);
+      vertex(x * settings.chunkSize, (1 + y) * settings.chunkSize, 0, settings.chunkSize);
     endShape();
   }
 }

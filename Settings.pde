@@ -1,3 +1,4 @@
-static class Settings {
-  static public int chunkSize = 32;
+class Settings {
+  public final int chunkSize = 32;
+  public final int maxHight = new Textures().lengthTextures();
 }

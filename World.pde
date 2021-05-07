@@ -11,11 +11,9 @@ class World {
     try {
       chunks.get(x).add(y, chunk);
     } 
-    catch(Exception e) {
+    catch(IndexOutOfBoundsException e) {
       chunks.add(x, new ArrayList<Chunk>());
-    } 
-    finally {
-      chunks.get(x).add(y, chunk);
+      chunks.get(x).add(y, chunk); //<>// //<>//
     }
   }
 
@@ -23,7 +21,7 @@ class World {
     try {
       chunks.get(x).get(y);
     } 
-    catch(Exception e) {
+    catch(IndexOutOfBoundsException e) { //<>// //<>//
       Chunk newChunk = gen.generateChunk(x, y);
       setChunk(newChunk, x, y);
     }
