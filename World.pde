@@ -18,15 +18,18 @@ class World {
           chunks.get(x).add(i, null);
         }
       }
-      chunks.get(x).add(y, chunk); //<>//
+      chunks.get(x).add(y, chunk);
     }
   }
 
   public Chunk getChunk(int x, int y) {
+    if (x < 0 || y < 0) {
+      return null;
+    }
     try {
       chunks.get(x).get(y);
     } 
-    catch(IndexOutOfBoundsException e) {  //<>//
+    catch(IndexOutOfBoundsException e) { 
       Chunk newChunk = gen.generateChunk(x, y);
       setChunk(newChunk, x, y);
     }

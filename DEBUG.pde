@@ -10,10 +10,11 @@ void MAIN_DEBUG() {
   }
 }
 
-void CHUNK_DEBUG(int x, int y) {
+void CHUNK_DEBUG(Chunk chunk) {
   if (settings.CHUNK_DEBUG) {
     fill(200, 0, 30);
-    text(x, x * settings.chunkSize, y * settings.chunkSize + 10);
-    text(y, x * settings.chunkSize, y * settings.chunkSize + 20);
+    text(chunk.getX(), chunk.getX() * settings.chunkSize, chunk.getY() * settings.chunkSize + 10);
+    text(chunk.getY(), chunk.getX() * settings.chunkSize, chunk.getY() * settings.chunkSize + 20);
+    text(chunk.getHight(), chunk.getX() * settings.chunkSize, chunk.getY() * settings.chunkSize + 30);
   }
 }

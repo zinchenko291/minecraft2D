@@ -32,8 +32,14 @@ class Camera {
     for (int i = 0; i < width / settings.chunkSize + 1; i++) {
       for (int j = 0; j < height / settings.chunkSize + 5; j++) {
         render.renderChunk(i + (int)x, j + (int)y);
+        render.renderShadow(i + (int)x, j + (int)y);
       }
     }
     pop();
+  }
+  
+  public void showChunk(int x, int y) {
+    render.renderChunk(x, y);
+    render.renderShadow(x, y);
   }
 }

@@ -2,22 +2,22 @@ Boolean up = false, down = false, left = false, right = false, shift = false;
 
 void keyPressed() {
   if (key == 'r') {
-    world = new World((long)random(settings.randomRange), 0.1);
+    world = new World((long)random(settings.seedRange), 0.1);
     cam = new Camera(0, 0, world);
   }
 
-  if (key == 'w' || key == 'W') up = true;
-  if (key == 'a' || key == 'A') left = true;
-  if (key == 's' || key == 'S') down = true;
-  if (key == 'd' || key == 'D') right = true;
+  if (key == 'w' || key == 'W' || key == 'ц' || key == 'Ц') up = true;
+  if (key == 'a' || key == 'A' || key == 'ф' || key == 'Ф') left = true;
+  if (key == 's' || key == 'S' || key == 'ы' || key == 'Ы') down = true;
+  if (key == 'd' || key == 'D' || key == 'в' || key == 'В') right = true;
   if (keyCode == SHIFT) shift = true;
 }
 
 void keyReleased() {
-  if (key == 'w' || key == 'W') up = false;
-  if (key == 'a' || key == 'A') left = false;
-  if (key == 's' || key == 'S') down = false;
-  if (key == 'd' || key == 'D') right = false;
+  if (key == 'w' || key == 'W' || key == 'ц' || key == 'Ц') up = false;
+  if (key == 'a' || key == 'A' || key == 'ф' || key == 'Ф') left = false;
+  if (key == 's' || key == 'S' || key == 'ы' || key == 'Ы') down = false;
+  if (key == 'd' || key == 'D' || key == 'в' || key == 'В') right = false;
   if (keyCode == SHIFT) shift = false;
 }
 
