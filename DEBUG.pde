@@ -1,12 +1,12 @@
 void MAIN_DEBUG() {
   if (settings.MAIN_DEBUG) {
     fill(0, 0, 200);
-    text(cam.getX(), 10, 10);
-    text(cam.getY(), 10, 20);
-    text(world.getXSize(), 10, 30);
-
-
-    ellipse(settings.chunkSize, settings.chunkSize, sin(millis() * 0.001) * 10, sin(millis() * 0.001) * 10);
+    text("Camera X: " + cam.getX(), 10, 10);
+    text("Camera Y: " + cam.getY(), 10, 20);
+    text("World X size:" + world.getXSize(), 10, 30);
+    text("Scale: " + scale, 10, 40);
+    text("FPS: " + (int)frameRate, 10, 50);
+    ellipse(2, 2, sin(millis() * 0.001) * 10, sin(millis() * 0.001) * 10);
   }
 }
 

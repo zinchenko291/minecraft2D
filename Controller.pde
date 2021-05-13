@@ -1,4 +1,5 @@
 Boolean up = false, down = false, left = false, right = false, shift = false;
+float scale = 1;
 
 void keyPressed() {
   if (key == 'r') {
@@ -34,4 +35,10 @@ void move() {
   if (down) {
     cam.setY(cam.getY() + settings.cameraSpeed * (shift ? settings.cameraSprintCoefficient : 1)); // down
   }
+}
+
+void mouseWheel(MouseEvent e) {
+  scale -= e.getCount() * 0.1;
+  scale = scale <= 0 ? 0.1 : scale;
+  scale = scale >= 5 ? 5 : scale;
 }

@@ -2,6 +2,8 @@ class Camera {
   private float x;
   private float y;
   private Render render;
+  
+  private int w, h;
 
   Camera(int x, int y, World world) {
     this.x = x;
@@ -27,14 +29,24 @@ class Camera {
   public float getY() { return y; }
 
   public void showArea() {
+    w = width / settings.chunkSize + 10;
+    h = height / settings.chunkSize + 10;
+    
+    w /= scale;
+    h /= scale;
     push();
-    translate(-x * settings.chunkSize, -y * settings.chunkSize);
-    for (int i = 0; i < width / settings.chunkSize + 1; i++) {
-      for (int j = 0; j < height / settings.chunkSize + 5; j++) {
-        render.renderChunk(i + (int)x, j + (int)y);
-        render.renderShadow(i + (int)x, j + (int)y);
+    scale(scale);
+      translate(-x * settings.chunkSize, -y * settings.chunkSize);
+      for (int i = 0; i < w; i++) {
+        for (int j = 0; j < h; j++) {
+          render.renderChunk(i + (int)x, j + (int)y);
+        }
       }
-    }
+      for (int i = 0; i < w; i++) {
+        for (int j = 0; j < h; j++) {
+          render.renderShadow(i + (int)x, j + (int)y);
+        }
+      }
     pop();
   }
   
